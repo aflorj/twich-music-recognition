@@ -17,7 +17,7 @@ let ytSearchesLeft = 100;
   https://developers.google.com/youtube/v3/getting-started#quota */
 
 let emote = 'Vibe';
-let emojis = [
+let emotes = [
   'peepoDJ',
   'xddJAM',
   'Dance',
@@ -34,8 +34,8 @@ let emojis = [
   'Vibe',
 ];
 
-function randomEmoji() {
-  return emojis?.[Math.floor(Math.random() * emojis?.length + 1)];
+function randomEmote() {
+  return emotes?.[Math.floor(Math.random() * emotes?.length)];
 }
 
 let currentSong = {
@@ -45,7 +45,7 @@ let currentSong = {
 };
 
 const getYoutubeId = (target, displayName, searchQuery) => {
-  emote = randomEmoji();
+  emote = randomEmote();
   ytSearchesLeft = ytSearchesLeft - 1;
   console.log(
     `Searching Youtube for "${searchQuery}". We have ${ytSearchesLeft} searches left today.`
@@ -307,7 +307,7 @@ function onMessageHandler(target, context, msg, self) {
 
   // check if the message is one of our commands
   if (commandName === '!song' && canSendMessage) {
-    emote = randomEmoji();
+    emote = randomEmote();
 
     // the sleep switch
     canSendMessage = false;
